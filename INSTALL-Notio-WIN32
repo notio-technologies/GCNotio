@@ -1,0 +1,128 @@
+                           +++++++++++++++++++++++++++++
+                           + WINDOWS BUILD WALKTHROUGH +
+                           +           NOTIO           +
+                           +++++++++++++++++++++++++++++
+
+                                  Michael Beaulieu
+
+                                      Aug 2021
+                                     Version 1.8
+
+Instructions to build the Notio version of Golden Cheetah on Windows. It was
+done on Windows 10 but it could be done on other version of Windows.
+
+1. Requirements
+===============
+
+1.1 R Library
+-------------
+Install the latest R library that can be found https://cran.r-project.org
+
+Set an Environment variable R_HOME = {R_INSTALL_PATH}\R-x.x.x
+Add to PATH %R_HOME%\bin\x64
+ 
+1.2 Win flex bison
+------------------
+Download the package win_flex_bison version 2.5.18 that can be found at
+https://sourceforge.net/projects/winflexbison/?source=directory
+
+Create on the c:\ the folder Dependencies\win_flex_bison
+
+Extract the files to C:\Dependencies\win_flex_bison
+Note: If you put your files else where, you'll need to modify the path in the
+      file gcconfig.pri
+
+In Windows Defender, the file win_flex might be flag as a Trojan. Simply authorize
+the file in Windows Defender when it will ask for an action on your part.
+   
+1.3 Windows 10 SDK
+------------------
+Download the latest Windows SDK from Microsoft.
+https://developer.microsoft.com/en-us/windows/downloads
+
+Click on the Windows Standalone SDK link on the website.
+
+You'll need to modify the path to the SDK in the file gcconfig.pri.
+ 
+1.4 Qt
+------
+Download the online installer from https://www.qt.io. Select the open source
+version of Qt.
+
+Within the installer, install the version 5.12.10.
+ - Select the tool Qt Creator CDB debugger support
+ - Debugging Tools for Windows.
+ - Select the tool Qt installer framework 4.1.
+ - Select CMake.
+ - Select Ninja.
+ - Select the tool OpenSSL 1.1.1j Toolkit (including sources).
+ 
+Setup environment.
+ - Add the environment variable QT_HOME that will point to the main install folder. Ex: C:\Qt
+ - Add to PATH the value %QT_HOME%\Tools\OpenSSL\Win_x64\bin
+
+1.5 Visual Studio Community 2017
+--------------------------------
+Install Visual studio available at
+https://visualstudio.microsoft.com/fr/vs/older-downloads/
+
+Qt OpenSSL libraries need Visual Studio 2010 redistributable package.
+Follow the link and download the file.
+https://visualstudio.microsoft.com/fr/vs/older-downloads/
+
+Rename the executable vcredist_msvc2010_x64.exe
+
+Go to your Qt install folder and put the file into the subfolder "vcredist".
+ 
+1.6 NSIS
+--------
+Install the tool NSIS that can be found http://nsis.sourceforge.net/Main_Page
+
+1.7 Git
+-------
+Install the version control system software Git 64bit.
+https://git-scm.com/download/win
+
+1.8 Algorithms library
+----------------------
+Get the package file NotioAlgo-x.x.x-win64.zip from our repository and extract the content
+in the folder "C:\Dependencies\".
+
+Note: If you put your files else where, you'll need to modify the path in the
+      file gcconfig.pri
+ 
+2. Configure and build Golden Cheetah
+======================================
+Before opening the project with Qt, you'll need to copy the file
+build.pro.shared.windows into the working directory and rename it build.pro.shared
+Also, copy the file gcconfig.pri.in and rename it gcconfig.pri. Edit the file as
+mentioned in the sections above.
+   
+Open the file gcconfig.pri in the folder "src". Update the paths of WINKIT_INSTALL,
+QMAKE_LEX, QMAKE_YACC and NOTIOALGO_INSTALL if necessary.
+   
+In Qt Creator, go in Tools -> Options -> Build & Run.
+Go in the General tab
+ - Select Current Directory for the project directory.
+ - Select Save all files before build.
+ - Select Always build before deploying it.
+ - Disable Always deploy project before running it.
+ - Select Use jom instead of nmake.
+
+Open the project.
+ - Go in the Project section.
+ - For each build configuration, disable the option Shadow build.
+ - You can modify the arguments of the Make Step, from the Build Steps section, by 
+   adding "-j 8" to use 8 cores for building. Depending on the computer, it might be a
+   higher value. For example, "-j 16" if you have 16 cores available.
+   
+You are now ready to build.
+
+The build directory is the Bin folder in the main directory.
+
+To be able to release an installer for Golden Cheetah, you must be in release
+configuration. After building the project, do a Deploy All from the Build menu.
+
+IMPORTANT: When switching from one configuration to another, execute "Run qmake"
+========== from the Build menu. It will ensure that the environment will be in
+           the right configuration.

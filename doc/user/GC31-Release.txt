@@ -1,0 +1,89 @@
+Some notes on what is new in GC 3.1
+-----------------------------------
+
+MAJOR NEW FEATURES
+
+1. Compare Mode
+   * Across Summary, Ride, QA, CP, Histogram, Metric charts
+   * Compare Athletes, Seasons, Rides, Intervals
+   * Easy and intuitive user interface
+
+2. Additional Power Duration Models
+   * Multiple PD models now available
+   * Track changes in model estimates for W', CP, P-Max, FTP over time
+   * Track changes in model estimates for any duration over time
+
+2. Merge Activities
+3. Share Dialog
+
+ENHANCEMENTS
+
+1. General
+i    Open Athletes in Tabs
+ii   Redesign Tabbed mode with a ChartBar
+iii  Themes and better support for color customisation
+iv   Improved Interactivity (axes, interval hover)
+v    Autofilter in Trends view
+vi   Specify athlete library location
+vii  Improved Dropbox support (CRC)
+viii Find intervals via matches, hills etc
+ix   Fix Elevation
+
+2. Device
+i    Fixed up Tacx Fortius Support
+ii   Joule GPS updates
+iii  FIT ride file updates 
+iv   Pedal Smoothness / Torque Effectiveness support
+v    Moxy support
+
+3. Metrics
+i    Plot best x power etc, Plot W', CP et al
+ii   W'bal implemented with metrics
+iii  TISS implemented
+iv   aPower
+v    Polarised Zones
+vi   Pacing Index / Fatigue Index
+vii  W' work
+viii Average Pedal Smoothness / Torque Efficiency
+
+4. LTM Chart
+i   Chart selection sidebar
+ii  LTM settings cleaned up
+iii Stack mode 
+iv  Data table mode
+v   Labels
+vi  Quadratic trend lines
+
+5. CP Chart
+i   User selectable CP models
+ii  Extended CP Model
+iii Plot rates of change
+iv  Plot heat and heat by age
+v   Plot as percentge of best
+vi  Plot centiles
+v   Ranking
+vi  Plot intervals
+vii Export Data
+
+6. Ride Chart
+i   Plot lots of derived series; NP, W'bal, xPower, Delta etc etc
+ii  Plot delta series
+iii Plot stack series
+iv  Isolate series hover on axis
+v   Create/Edit reference lines
+
+7. Summary Chart
+i   Athlete Bests
+ii  Model derived estimates (CP, FTP etc)
+
+8. Foundational
+i   QT 5 support
+ii  QWT 6.1 support
+iii MainWindow/Context/Athlete refactored
+iv  CP refactored (for models and intervals)
+v   AllPlot refactored (for compare)
+
+BUG FIXES
+i   Over 1000 commits since 3.0 including many bug fixes
+ii  Eradicating assert reduces crashes
+iii Crash dialog/restart to menu

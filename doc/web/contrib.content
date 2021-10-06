@@ -1,0 +1,61 @@
+<!-- $Id: contrib.content,v 1.4 2006/09/06 04:07:18 srhea Exp $ -->
+
+<p>Sean Rhea bought a PowerTap Pro on April 20, 2006 and immediately set
+to figuring out how to use it from his Mac without using Virtual PC.
+With help from Russ Cox and David Easter, he wrote two command-line
+programs for downloading data from a PowerTap and interpreting that
+data.  Sean released these two tools, <code>ptdl</code> and
+<code>ptunpk</code>, on May 4, 2006.</p>
+
+<p>Later that year, Sean needed to learn QT for his real job, and he set
+about writing a graphical version of his software for practice.  He
+released the first graphical version on September 6, 2006, changing the
+name to GoldenCheetah in reference to an old legend from his days as a
+runner.</p>
+
+<p>Since then, a large community has contributed additional code and
+other support, including:</p>
+
+<table width="80%">
+<tr>
+<td valign="top" width="33%">
+<ul>
+<li>Robert Carlsen</li>
+<li>Rainer Clasen</li>
+<li>Chris Cleeland</li>
+<li>J.T. Conklin</li>
+<li>Dan Connelly</li>
+<li>Damien Grauser</li>
+<li>Steve Gribble</li>
+<li>Dag Gruneau</li>
+<li>Ned Harding</li>
+</ul>
+</td>
+<td valign="top" width="33%">
+<ul>
+<li>Aldy Hernandez</li>
+<li>Jamie Kimberley</li>
+<li>Justin Knotzke</li>
+<li>Andrew Kruse</li>
+<li>Mark Liversedge</li>
+<li>Greg Lonnon</li>
+<li>Tom Montgomery</li>
+<li>Eric Murray</li>
+<li>Scott Overfield</li>
+</ul>
+</td>
+<td valign="top">
+<ul>
+<li>Mark Rages</li>
+<li>Robb Romans</li>
+<li>Mitsukuni Sato</li>
+<li>Berend de Schouwer</li>
+<li>Julian Simioni</li>
+<li>Greg Steele</li>
+<li>Tom Weichmann</li>
+<li>Keisuke Yamaguchi</li>
+</ul>
+</td>
+</tr>
+</table>
+

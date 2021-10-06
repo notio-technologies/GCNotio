@@ -1,0 +1,51 @@
+<p>
+<font face="arial,helvetica,sanserif">
+<big><strong>GoldenCheetah 3.0.2</strong></big>
+</font>
+</p>
+
+<p>
+Full Change Log
+</p>
+<pre>
+$ git checkout release_3.0.1
+$ git shortlog v3.0-SP2 ^v3.0-SP1
+
+Christian Stade-Schuldt (3):
+      Added virtual power support for Tacx Blue Twist trainer
+      Added virtual power support for Tacx Blue Motion trainer
+      added Tacx Blue Twist and Tacx Blue Motion to Device Wizard
+
+Damien (6):
+      AerobicDecoupling: Correct formula     fix #721
+      AllPlot: Handle noTemp with no smooth fix #634
+      FitRideFile: correct issue with unknown field type in fit file     fix #724
+      FitRideFile: We may need to add string support
+      FitRideFile: wrong copy-paste
+      GoogleMapControl: Small fix for Google Map     fix #814
+
+Gareth Coco (1):
+      Update translations for upcoming release
+
+Jaime Jofre (1):
+      Fixes issue #791
+
+Mark Liversedge (7):
+      Increase Starting LTS limits
+      Fix WKO import - another optpad constant
+      Compromise on import
+      Fix SEGV on bad file/header in FitRideFile
+      Revert "Fix SEGV on bad file/header in FitRideFile"
+      Another attempt to fix SEGV in FitRideFile
+      Release 3.0-SP2
+
+Stig B. Dørmænen (1):
+      Made the fault handling in TPDownload a little more user friendly
+
+Walter (1):
+      using milliseconds for delta_t when calculating speed, supports Suunto Ambit gpx datafiles
+
+alexdelli (1):
+      Added Support for Elite Supercrono PowerMag
+
+</pre>

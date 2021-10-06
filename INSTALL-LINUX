@@ -1,0 +1,314 @@
+                                 +++++++++++++++++++++++
+                                 LINUX BUILD WALKTHROUGH
+                                 +++++++++++++++++++++++
+
+                                     Mark Liversedge
+                                     John Ehrlinger
+
+                                        Jan 2015
+                                      Version 1.2
+
+A walkthrough of building GoldenCheetah from scratch on Ubuntu linux. This walkthrough
+should be largely the same for any Linux distro.
+
+CONTENTS
+
+1. BASIC INSTALLATION WITH MANDATORY DEPENDENCIES
+   - QT
+   - git
+
+2. ADDING OPTIONAL DEPENDENCIES WHEN BUILDING VERSION 2
+   - FTDI D2XX
+   - SRMIO
+   - liboauth
+   - libkml
+
+3. ADDING OPTIONAL DEPENDENCIES WHEN BUILDING VERSION 3
+   - checking out the release 3 branch & building with MANDATORY dependencies
+     - flex
+     - bison
+   - libical - Diary window and CalDAV support (google/mobileme calendar integration)
+   - libvlc  - Video playback in training mode
+
+1. BASIC INSTALLATION WITH MANDATORY DEPENDENCIES
+=================================================
+
+Installed Linux distribution of choice on platforms i386 or amd-64 (currently Debian-based distributions and Arch-based distributions are covered). You will not need to do this if you
+already have a Linux distribution installed. Left this step in to highlight the
+Linux distribution the commands below were executed on.
+
+login and open a terminal to get a shell prompt
+
+Download MANDATORY DEPENDENCIES (browser)
+-----------------------------------------
+Download and install the Qt SDK from http://qt-project.org/
+Once that is completed test qmake is ok with: qmake --version (should report 4.9.8 or higher)
+
+
+DEBIAN-BASED DISTRIBUTION INSTRUCTIONS
+--------------------------------------
+
+Install git with:
+$ sudo apt-get install git
+Said Y to prompt about all git files installed (git-gui et al)
+
+Install FLEX and BISON
+----------------------
+
+You will need flex v2.5.9 or later
+$ sudo apt-get install bison
+$ sudo apt-get install flex
+-----------------------------------
+
+ARCH-BASED DISTRIBUTION INSTRUCTIONS
+------------------------------------
+
+Install git:
+$ sudo pacman -S git
+
+INSTALL FLEX and BISON
+----------------------
+$ sudo pacman -S flex bison
+
+NEXT STEPS
+----------
+$ vi gcconfig.pri
+
+Ensure you have the following lines (which are now also in gcconfig.pri.in which has
+been updated to reflect the new dependencies in version 3)
+
+QMAKE_LEX  = flex
+QMAKE_YACC = bison
+win32 {
+  QMAKE_YACC = bison --file-prefix=y -t
+  QMAKE_MOVE = cmd /c move
+  QMAKE_DEL_FILE = rm -f
+}
+
+Build!
+------
+$ make clean
+$ qmake
+$ make
+
+To compile translation you need QT tool - lrelease
+If it is not found using he defaults in src/src.pro then set the full path and filename in gcconfig.pri
+QMAKE_LRELEASE = /usr/bin/lrelease
+
+When build first time you get number of error messages on .qm files missing:
+    "RCC: Error in 'Resources/application.qrc': Cannot find file 'translations/gc_fr.qm'"
+You can ignore these messages for your build. The .qm files will be created during the
+build at a later point in time via the "lrelease" command you configured in gcconfig.pri)
+
+If your QT build includes its own local compress libs then you should comment the line below in gcconfig.pri,
+otherwise you will need to have the compress libraries installed separately. 
+#LIBZ_INCLUDE =
+#LIBZ_LIBS    = -lz
+
+You will now have a release3 binary but with none of the release3 dependencies compiled in.
+Get latest GOLDEN CHEETAH source files
+--------------------------------------
+$ mkdir -p ~/Projects/Live
+$ cd ~/Projects/Live
+$ git clone git://github.com/GoldenCheetah/GoldenCheetah.git
+$ cd GoldenCheetah
+
+Configure MANDATORY DEPENDENCIES
+--------------------------------
+$ cd qwt
+$ cp qwtconfig.pri.in qwtconfig.pri
+$ cd ../src
+$ cp gcconfig.pri.in gcconfig.pri
+$ vi gcconfig.pri
+
+Comment out the D2XX_INCLUDE and SRMIO_INSTALL lines for now (put # in first character of the line
+to comment out), we will install that in a moment, if we need to.
+
+If you are building for your local host you may find that you get better performance if
+compiling with gcc -O3 (tree vectorization can have a significat impact) [or -Ofast]
+
+If so you might like to uncomment:
+
+QMAKE_CXXFLAGS += -O3
+
+Save and exit
+
+$ cd ..
+
+BUILD WITH BASIC CONFIGURATION
+$ qmake -recursive
+$ make
+
+Congratulations you have now build a basic GoldenCheetah and can run this safely. See below for
+optional dependencies you can install to support other features.
+
+ADDING OPTIONAL DEPENDENCIES WHEN BUILDING VERSION 2
+====================================================
+
+D2XX - For Powertap downloads via USB
+-------------------------------------
+
+Download the FTDI drivers from http://www.ftdichip.com/Drivers/D2XX.htm (e.g. I used Linux 
+64-bit drivers from http://www.ftdichip.com/Drivers/D2XX/Linux/libftd2xx1.0.4.tar.gz)
+
+Extract into your home directory (I put mine into ~/Projects/ with archive manager which
+created a sub-directory ~/Projects/libftd2xx1.0.4
+
+$ cd src
+$ vi gcconfig.pri
+
+Uncomment the D2XX_INCLUDE entry and make it match (my home is /home/markl)
+D2XX_INCLUDE = /home/markl/libftd2xx1.0.4
+
+Make clean is needed if you have previouslt built, since source files examine #defines before
+including this feature. You can skip it if you know why ;)
+$ make clean
+$ qmake
+$ make
+
+You now have D2XX support, for downloading from a PT via a USB cradle.
+
+SRMIO - For SRM powercontrol V downloads via Serial
+---------------------------------------------------
+
+$ cd ~/Projects
+$ git clone git://github.com/rclasen/srmio srmio
+$ cd srmio
+
+Get automake and tools, if you don't already have them (I didn't after a fresh install)
+$ sudo apt-get install automake
+$ sudo apt-get install libtool
+
+Generate the configure script, run it, build and install srmio
+$ sh genautomake.sh
+$ ./configure
+$ make
+$ sudo make install
+
+Lets go config GC and build with SRMIO
+$ cd ~/Projects/Live/GoldenCheetah/src
+$ vi gcconfig.pri
+
+Uncomment the SRMIO_INSTALL and replace with the target used from srmio install:
+SRMIO_INSTALL = /usr/local/
+
+At the bottom of gcconfig.pri you will see the include directory should reference from
+the base install location (/usr/local) make sure it says:
+
+SRMIO_INCLUDE = $${SRMIO_INSTALL}/include
+SRMIO_LIB = $${SRMIO_INSTALL}/lib/libsrmio.a
+
+Make clean is needed if you have previouslt built, since source files examine #defines before
+including this feature. You can skip it if you know why ;)
+$ make clean
+$ qmake
+$ make
+
+You now have SRM support built in.
+
+LIBKML - For export to Google Earth
+-----------------------------------
+
+You will need Google Earth 5.2 or later and therefore libkml that supports this. Unfortunately at the time of writing
+the officially packaged libkml is too old, so you will need to install from source, which means you will need to have
+subversion installed and expat. You may be able to use the currently packaged libkml with
+
+$ sudo apt-get install libkml-dev
+
+if this does not work you will need to build from source:
+
+    $ sudo apt-get install subversion
+    $ sudo apt-get install expat libexpat1 libexpat1-dev
+
+    Once svn is installed you can grab the libkml source and configure build etc:
+    $ cd ~/Projects
+    $ svn checkout http://libkml.googlecode.com/svn/trunk/ libkml
+    $ cd libkml
+
+    You will need automake and friends (see SRMIO above)
+    $ sh autogen.sh
+    $ ./configure
+    $ make
+    $ make install
+    $ sudo make install
+
+    If you get errors about use of 'long long' then edit:
+    - src/kml/{convenience,dom,engine,regionator,xsd}/Makefile
+    - examples/{engine,gpx,gx,hellonet,helloworld,regionator,xsd}/Makefile
+    - and look for the flag -pedantic and remove it. I got this on Linux 64bit builds ymmv.
+
+Once libkml is installed and built:
+
+$ cd ~/Projects/Live/GoldenCheetah/src
+$ vi gcconfig.pri
+
+Ensure KML_INSTALL=/usr/local
+
+Make clean is needed if you have previously built, since source files examine #defines before
+including this feature. You can skip it if you know why ;)
+$ make clean
+$ qmake
+$ make
+
+You can now export rides to Google Earth kml format.
+
+ADDING OPTIONAL DEPENDENCIES WHEN BUILDING VERSION 3
+====================================================
+
+
+NOTE: When you run version 3 it will refresh ride metrics and CP files -- this only occurs the
+      first time it runs (and will refresh only rides that change after that). I find it is best
+      to import ride files once your build where you want it. i.e. don't import until you have
+      got all your dependencies sorted.
+
+NOTE: To reduce the dependencies on 'dormant' code there are a number of new pieces of source
+      that are included in the release3 tree. Notably; qtsoap from qt-solutions, since they
+      work but are likely to be archived and deprecated. If and when that happens we may well
+      adopt whatever classes Trolltech introduce.
+
+
+LIBICAL - Diary integration with Google or MobileMe calendars
+-------------------------------------------------------------
+
+$ cd ~/Projects/Live/GoldenCheetah/src
+
+$ sudo apt-get install libical-dev
+$ vi gcconfig.pri
+
+ICAL_INSTALL=/usr/include
+ICAL_LIBS=-lical
+
+Since the src.pro wants ICAL installed in a different place we need to hack it, *** this will
+be fixed shortly ***
+
+$ vi src.pro
+
+Comment out the ICAL_LIBS entry:
+
+#ICAL_LIBS = $${ICAL_INSTALL}/lib/libical.a
+
+$ make clean
+$ qmake
+$ make
+
+You should now have diary functions.
+
+NOTE: That upload to MobileMe and Google requires a functioning https lib in QT. Depending
+      upon the version installed this might not be the case and will need to be built and
+      configured -- this is beyond the scope of this walkthough. Sorry.
+
+LIBVLC - Video playback in Realtime (Experimental)
+--------------------------------------------------
+
+You will need libvlc 1.1.9 or higher (1.1.8 is ok but will segv on exit)
+$ sudo apt-get install libvlc-dev
+
+$ vi gcconfig.pri
+
+Comment out VLC_INSTALL and it should read:
+
+VLC_INSTALL = /usr/include/vlc/
+
+$ make clean
+$ qmake
+$ make

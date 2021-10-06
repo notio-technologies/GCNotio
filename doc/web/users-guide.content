@@ -1,0 +1,355 @@
+<!-- $Id: users-guide.content,v 1.5 2006/05/27 16:32:46 GoldenCheetah Exp $ -->
+<h2><font face="arial,helvetica,sanserif">Version 3.0</font></h2>
+
+<p>
+Please dowload the <a href="https://github.com/GoldenCheetah/GoldenCheetah/blob/master/doc/user/GC3-Manual.pdf?raw=true">Manual</a>
+for great information on how to use all the functions in Golden Cheetah.
+</p>
+<p>
+You can also see a list of
+<a href="https://github.com/GoldenCheetah/GoldenCheetah/blob/master/doc/user/GC3-FAQ.pdf?raw=true">Frequently Asked Questions (FAQ)</a>.
+</p>
+<p>
+Note that more detailed information is often available on the
+<a href ="wiki.html">
+Golden Cheetah Wiki</a>.
+
+<h2><font face="arial,helvetica,sanserif">Version 2.1</font></h2>
+
+<p>
+What follows is a brief step-by-step guide to installing and setting up
+Golden Cheetah Version 2.1.0.
+
+<p>
+<big><font face="arial,helvetica,sanserif">
+Step 1 (optional): Installing the FTDI drivers
+</font></big>
+
+<p>
+This step is only needed if you want to download rides from a powertap
+pro/comp/cervo head unit via the supplied USB cradle. Furthermore, most
+Windows and Linux systems should recognize the device without installing
+the drivers below.
+
+<p>
+Depending on your operating system, you <i>may</i> need to install the
+<a href="http://www.ftdichip.com/Drivers/D2XX.htm">FTDI D2XX driver</a> if
+you're using the PowerTap's new USB download cradle.
+Note: version 0.1.7 of the FTDI drivers for Mac seems to be buggy.  Until they
+post a patched version, you can download version 0.1.6
+ <a href="https://github.com/GoldenCheetah/GoldenCheetah/blob/master/contrib/Universal_D2XX0.1.6.dmg?raw=true">here</a>
+ and install via the terminal. Or if you are not terminal savvy, download an installer that will
+perform the installation of the 0.1.6 drivers for you
+ <a href="https://github.com/GoldenCheetah/GoldenCheetah/blob/master/contrib/Install_D2XX_drivers.mpkg.zip?raw=true">
+here</a>.
+
+<p>
+If you're running Linux, you may also need to uninstall the <code>brtty</code>
+(Braille TTY) application, as it interferes with FTDI's driver.  The command
+
+<pre>
+sudo apt-get remove brtty
+</pre>
+
+should do the trick on Debian/Ubuntu.  
+
+<p>
+The latest version (7.1.1) of Saris's PowerAgent software uses an incompatible
+version of FTDI's driver from the one GoldenCheetah uses, and PowerAgent
+removes the driver that GoldenCheetah needs when you install PowerAgent.  If
+you want to run both GoldenCheetah and PowerAgent, you need to use PowerAgent
+version 7.0.1 or earlier.  We're working to correct this problem, but we're
+not there yet.
+
+<p>
+<big><font face="arial,helvetica,sanserif">
+Step 2: Installing GoldenCheetah
+</font></big>
+
+<p>
+To install GoldenCheetah, go to <a href="download.html">the download page</a>
+and download the version for your operating system and processor.  
+
+<p>
+On Mac OS X, when the download finishes, Mac OS X should automatically open
+the <code>.dmg</code> file for you.  If not, double-click to open it.  Drag
+the GoldenCheetah icon into your Applications folder, and you're done.
+</p>
+
+<p>
+The Windows version has an installer. Just run the Installer, select where
+to install the application and away you go.
+</p>
+
+<p>
+The Linux version of GoldenCheetah is distributed as a GZipped tar archive.
+Download this file and save it to <code>/tmp</code>, then from a terminal:
+
+<pre>
+cd /tmp
+tar xvzf GoldenCheetah_X.X.X_Linux_ARCH.tgz
+cd GoldenCheetah_X.X.X_Linux_ARCH
+sudo chmod u+x GoldenCheetah
+sudo cp GoldenCheetah /usr/local/bin
+cd ..
+rm -rf GoldenCheetah_X.X.X_Linux_ARCH
+</pre>
+
+Be sure to replace "X.X.X" with the version of the release you downloaded,
+such as "2.1.0" and replace "ARCH" with the architecture of the release
+you download - either "x86" (32bit) or "x84_64" (64bit).
+
+<p>
+<big><font face="arial,helvetica,sanserif">
+Step 3: Running GoldenCheetah
+</font></big>
+
+<p>
+To run GoldenCheetah on Mac OS X, double-click on the GoldenCheetah icon in
+your Applications folder. On Windows, click the Start button, All Programs
+link, GoldenCheetah folder and then the Golden Cheetah program. On Linux,
+just type "GoldenCheetah" at the prompt.
+
+<p>
+The first time you run GoldenCheetah, you'll get an empty "Choose a Cyclist"
+dialog box:
+
+<p>
+<center><img src="choose-a-cyclist.png"></center>
+
+<p>
+Click on "New...", enter your name and click "OK", then select your name and
+click "Open".  After that, the main GoldenCheetah window will open:
+
+<p>
+<center><img src="main-window.png"></center>
+
+<p>
+Your main window won't yet have any rides in it, of course.  To fix that, you
+need either to download a ride from your PowerTap or import one from another
+program.  GoldenCheetah can import <code>.srm</code> files recorded on SRM
+power meters and <code>.csv</code> files created by other programs.  To
+download a file from your PowerTap, select "Ride->Download from device..."
+from the menu.  To import one, select either "Ride->Import from SRM..." or
+"Ride->Import from CSV...".
+
+<p>
+Once you've downloaded or imported a ride, you can see some simple statistics
+about it on the "Ride Summary" page: your total riding time and average power,
+for example.  If you click on the "Ride Plot" tab at the top of the screen,
+you can see a graph of your speed, power, cadence, and heart rate during the
+ride.  The "Power Histogram" shows how much time you spent at each power
+during the ride, and the "Notes" tab allows you to record notes about the
+ride.  The "Weekly Summary" shows your total time and work for the week.
+
+<p>
+The "Critical Power Plot" is one of the most useful features of GoldenCheetah.
+It shows the highest average power you attained for every interval length
+during the ride.  Some people call this the "Mean Maximal Power" graph.  The
+green line shows values for this ride; the red line shows the combination of
+all your rides.  (If you only have one ride so far, the two lines will
+overlap.)  Clicking on the graph with your mouse brings up a blue line, and
+the values under this line are shown at the bottom of the screen.
+
+<p>
+It helps to think about an example:
+
+<p>
+<center><img src="critical-power.png"></center>
+
+<p>
+In this example, the blue line is right around the 14-second mark on the
+x-axis.  So the values shown under "Today" and "All Rides", at the bottom, are
+the hardest the cyclist went for any 14-second period during the ride itself
+and during all rides he's ever recorded in GoldenCheetah.  Since the two
+values are the same, he set a new personal record during this ride.
+
+<p>
+The Critical Power Plot is most useful before you're going to go do intervals
+or a time trial.  Say you want to do six 2-minute intervals with three minutes
+rest in between.  Click on the Critical Power Plot, drag the blue line to the
+2-minute mark, and read the value shown in "All Rides".  That's the hardest
+you've ever gone for two minutes.  Now go out and try to beat it!
+
+<p>
+<big><font face="arial,helvetica,sanserif">
+Step 4: Setting Up Your Power Zones
+</font></big>
+
+<p>
+If you look back at the screenshot above, you may notice that there are
+several things shown in the "Ride Summary" tab that aren't on your version.
+The picture above shows a non-zero "Bike Score", and there's a list of how
+much time the cyclist spent in each "Power Zone" during the ride as well.  
+
+<p>
+BikeScore(TM) is a measure of the physiological stress you underwent during a
+ride.  It was developed by Dr. Philip Skiba, and you can read more about it in
+<a href="http://www.physfarm.com/Analysis%20of%20Power%20Output%20and%20Training%20Stress%20in%20Cyclists-%20BikeScore.pdf">an article he wrote</a>.
+
+<p>
+For GoldenCheetah to compute your BikeScore and the time spent in each power
+zone, you first need to tell it what your power zones and critical power
+are.  You can define your power zones however you like, maybe using the ones
+defined by Joe Friel, for example.  Your critical power should be the
+maximum power you can sustain over an hour.  Some people call this your
+"lactate threshold" or "functional threshold power".  Our friend Bill says a
+rose by any other name would smell as sweet.
+
+<p>
+There are currently three ways to set up your power zones.  Each method has
+its benefits, so feel free to select the method that best suits your needs.
+
+<p><b>Method 1: Set via critical power plot.</b>
+
+<p> GoldenCheetah can determine a value for your CP value based on all
+of the data in your critical power plot.  The calculated value of CP can
+be used to create a new range in your power.zones file by clicking the
+"save CP value" button in the lower right corner of the critical power
+plot tab. The new range will use the default zone definitions (see Method 2).
+Once the new range is set, you can manually edit the file to change the zone
+definitions as in Method 3.
+
+<p>
+<b>Method 2: User preferences.</b>
+<p>
+From the menu bar select GoldenCheetah->Preferences, then click on
+"cyclist info". The window should look like this:
+
+<p>
+<center><img src="cyclist-info.png"></center>
+
+
+<p>
+Enter a value for critical power at the top of the dialog and click save
+to set your CP.  New ranges can also be set via this dialog so that you can
+adjust your CP value throughout the season as your fitness increases (or
+decreases). Once your CP is set, GoldenCheetah will set up seven power zones
+based on percentages of your CP value.  The zones are:
+<p>
+<table align="center" width="450">
+ <tr>
+   <td>Zone</td>
+   <td>Description</td>
+   <td>Low</td>
+   <td>High</td>
+ </tr>
+ <tr>
+   <td>Z1</td>
+   <td>Active Recovery</td>
+   <td>0%</td>
+   <td>55%</td>
+ </tr>
+ <tr>
+   <td>Z2</td>
+   <td>Endurance</td>
+   <td>55%</td>
+   <td>75%</td>
+ </tr>
+ <tr>
+   <td>Z3</td>
+   <td>Tempo</td>
+   <td>75%</td>
+   <td>90%</td>
+ </tr>
+ <tr>
+   <td>Z4</td>
+   <td>Threshold</td>
+   <td>90%</td>
+   <td>105%</td>
+ </tr>
+ <tr>
+   <td>Z5</td>
+   <td>VO2 Max</td>
+   <td>105%</td>
+   <td>120%</td>
+ </tr>
+ <tr>
+   <td>Z6</td>
+   <td>Anaerobic</td>
+   <td>120%</td>
+   <td>150%</td>
+ </tr>
+ <tr>
+   <td>Z7</td>
+   <td>Neuromuscular</td>
+   <td>150%</td>
+   <td>MAX</td>
+ </tr>
+</table>
+<p>
+If you want to use other zones boundaries or labels, you can manually edit
+the power.zones file as described in Method 3.
+
+<p>
+<b>Method 3: Manually edit the power.zones file.</b>
+<p>
+To edit/create the power.zones file you'll need to use a text editor.
+On Linux, that probably means nano, vi, or emacs. On Mac, the easiest
+editor to use is TextEdit, which is in your Applications folder.
+
+<p> Start by downloading <a href="power.zones">this sample file</a> and saving
+it in your rider directory, which is listed in the GoldenCheetah->About GoldenCheetah
+menu item.
+<p>
+Open the power.zones file in a text editor and you'll see this:
+
+<blockquote>
+<pre>
+From BEGIN until 2006/07/17, CP=297:
+  1, Active Recovery,     122, 167
+  2, Endurance,           167, 228
+  3, Tempo,               228, 274
+  4, Lactate Threshold,   274, 319
+  5, VO2 Max,             319, 365
+  6, Anaerobic Capacity,  365, 678
+  7, Sprinting,           678, MAX
+
+From 2006/07/17 until 2007/02/05, CP=329:
+  1, Active Recovery,     135, 185
+  2, Endurance,           185, 253
+  3, Tempo,               253, 303
+  4, Lactate Threshold,   303, 354
+  5, VO2 Max,             354, 404
+  6, Anaerobic Capacity,  404, 752
+  7, Sprinting,           752, MAX
+
+From 2007/02/05 until END, CP=347:
+  1, Active Recovery,     139, 191
+  2, Endurance,           191, 260
+  3, Tempo,               260, 312
+  4, Lactate Threshold,   312, 364
+  5, VO2 Max,             364, 416
+  6, Anaerobic Capacity,  416, 774
+  7, Sprinting,           774, MAX
+</pre>
+</blockquote>
+
+<p>
+The format of the file is simple.  You define a range of time, starting with a
+date or "BEGIN" to indicate the oldest possible time and ending with a date or
+"END" to indicate the latest possible time.  Then you put your critical power
+(CP) for that date range.  Then you list your zones, where each zone has a
+number, a name, a minimum power value, and a maximum power value.  You can
+have as many time ranges and zones as you like.  Most people enter a new time
+range every time their critical power goes up--right after a fitness test, for
+example.
+
+<p>
+NOTE: By default, Mac OS's TextEdit will try and save the power.zones file
+with a <code>.txt</code> extension.  Use the menu command "Format->Make Plain
+Text" to get it to let you save the file with a <code>.zones</code> extension
+instead.
+
+<p>
+
+<p>
+<big><font face="arial,helvetica,sanserif">
+Legacy Command-Line Tools
+</font></big>
+
+<p>
+You can still build the older, command-line tools from the source code, but we
+no longer include them in releases.  <a href="command-line.html">You can find
+documentation for them here.</a>
+

@@ -1,0 +1,45 @@
+<!-- $Id: index.content,v 1.1 2006/05/16 14:24:50 srhea Exp $ -->
+
+<p>
+<center>
+<em>To all those volunteers who selflessly give their time and without whom
+amateur sport would not exist.</em>
+<br>
+-- Graeme Obree, in the dedication of <em>Flying Scotsman</em>
+</center>
+
+<p>
+GoldenCheetah is a software package that:
+
+<ul>
+<li>Downloads ride data directly from the CycleOps PowerTap and the SRM
+PowerControl V, VI and VII.</p>
+
+<li>Imports ride data downloaded with other programs, including TrainingPeaks
+WKO+ and the manufacturers' software for the Ergomo, Garmin, Polar, PowerTap,
+and SRM devices.<p>
+
+<li>Provides a rich set of analysis tools, including a critical power graph,
+BikeScore calculation, histogram analysis, a best interval finder, and a pedal
+force versus pedal velocity chart, to name just a few.<p>
+
+<li>Is available for Linux, Mac OS X, and Windows.<p>
+
+<li>Is released under an Open Source license.
+</ul>
+
+<p>
+We believe that cyclists should be able to download their power data
+to the computer of their choice, analyze it in whatever way they see fit, and
+share their methods of analysis with others.
+
+<hr width="20%"/>
+
+<small>
+<p>
+* WKO+ and TrainingPeaks are trademarks of Peaksware, LLC.
+<br/>
+** BikeScore is a trademark of Dr. Philip Friere Skiba, PhysFarm Training
+Systems LLC.
+</p>
+</small>

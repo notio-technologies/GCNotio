@@ -1,0 +1,22 @@
+#!/bin/zsh
+
+# Remove current application directory.
+rm -rf ./Bin/Release/GCNotio.app
+
+# Extract Notio version from GcUpgrade.h file.
+version_nk=$(sed -n '/^\#define VERSION_NK / s/[^\"]*\"\([^\"]*\)\"/\1/p' ./src/Core/GcUpgrade.h)
+
+# Escape some characters.
+version_nk=$(echo "${version_nk}" | sed -e 's/[]$.*[\^]/\\&/g')
+
+# Extract Golden Cheetah version from GcUpgrade.h file.
+version_string=$(sed -n '/^\#define VERSION_STRING / s/[^\"]*\"\([^\"]*\)\"/\1/p' ./src/Core/GcUpgrade.h)
+
+# Escape some characters.
+version_string=$(echo "${version_string}" | sed -e 's/[]$.*[\^]/\\&/g')
+
+# Replace CFBundleGetInfoString key value with the software version.
+sed -i '' "s/GCVersion/$version_string/g" ./src/Resources/mac/Info.plist.app
+
+# Replace CFBundleShortVersionString key value with the software version.
+sed -i '' "s/x\.y\.z/$version_nk/g" ./src/Resources/mac/Info.plist.app

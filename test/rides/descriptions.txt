@@ -1,0 +1,92 @@
+04010301.hrm
+    A polar hrm file. Version=106 S-series polar unit (s610). English
+    units. This file only includes heart rate data.
+
+06021201.hrm
+    A polar hrm file. Version=106 S-series polar unit (s625x/s725x). English
+    units. This file includes heart rate and altitude data.
+
+09052101.hrm
+    A polar hrm file. Version=106 S-series polar unit (s625x/s725x). English
+    units. This file includes speed, cadence, heart rate and altitude data.
+
+10091901.hrm
+    A polar hrm file. Version=106 S-series polar unit (cs400). Metric
+    units. This file includes speed, cadence, heart rate and altitude data.
+
+10092501.hrm
+
+2009_09_19_09_22_42.tcx
+    A TCX file with "smart recording", i.e. variable recording intervals.
+
+2009_08_30_21_17_25.tcx
+    A TCX file from a Garmin 705. Includes power, altitude, and heart rate
+    data. Good general case test of TCX import
+
+2009_01_09_11_13_14.tcx
+    A TCX file from a Garmin 705. Includes altitude but no power or heart
+    rate. Time starts before 0, causing cpint crash.  Also a good test for
+    handling missing data.
+
+2008_12_28_08_13_27.tcx
+    A TCX file with altitude values below sea level. Also has missing heart
+    rate and power data.
+
+20090806_053349_BOB_DOBILANA.CSV
+    A CSV file exported from the ergomo ergoracer software. The filename
+    is the default format for export from ergoracer. Includes distance,
+    power, cadence, speed, heart rate, altitude, temperature, and interval
+    number (all zeros in this file).
+
+20090804_062250_BOB_DOBALINA.CSV
+    A CSV file exported from the ergomo ergoracer software. The filename
+    is the default format for export from ergoracer. Includes distance
+    (all zeros in this file), power, cadence, speed (all zeros), heart
+    rate, altitude, temperature, and interval number.  Note the interval
+    numbering convention.
+
+20090506T164017.05256.srd
+    A polar srd file which includes altitude, speed and heartrate. It
+    does not contain interval or power data, although there is a single
+    interval at the end of the workout which is 0 seconds long.
+
+20090512T163932.03592.srd
+    A polar srd file which includes altitude, speed and heartrate. It
+    does not contain interval or power data, although there is a single
+    interval at the end of the workout which is 0 seconds long.
+
+2010-04-05-21-45-04.tcx
+    A Garmin Training Centre ride with short stops to test handling of
+    smart recording in Tcx RideFile. 
+
+lgulseth...pwx
+    A PWX file from a Timex GPS with a permanent recording interval of
+    2 seconds claimed. But looks more like 2.02s.
+
+2013-04-11-17-32-50.fit
+   A FIT file with a massive gap in recording at the end.
+
+2013_05_27_08_56_35.json
+   A very short ride (12 seconds) to test array processing and general
+   bounds checking in the GC codebase.
+
+20130716_202738.fit
+20130717_143733.fit
+   Two rides that contain the calibration messages collected from 
+   an osync headunit.
+
+Move_2013_08_06_18_00_35.xlsx
+   A Suunto Ambit export from the movescount website, the original
+   file can be viewed at http://www.movescount.com/moves/move16837909
+
+Move_2014_01_16_19_48_44.gpx
+Move_2014_01_17_09_33_11.gpx
+   A couple of Suunto Ambit export with milliseconds as time units
+
+moxy.fit
+   A moxy .fit file with smO2 and thb data.
+
+2015-09-27-0755_Road_Cycling_WF.tcx
+  Contains out of bound values for speed and power that can cause
+  crashes when making assumptions about data values in code.
+

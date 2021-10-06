@@ -1,0 +1,39 @@
+<!-- $Id: faq.content,v 1.4 2006/07/05 16:59:56 srhea Exp $ -->
+
+<h2>Documentation</h2>
+<p>
+There is a <a href="https://github.com/GoldenCheetah/GoldenCheetah/blob/master/doc/user/GC3-Manual.pdf?raw=true">Manual</a>
+and a <a href="https://github.com/GoldenCheetah/GoldenCheetah/blob/master/doc/user/GC3-FAQ.pdf?raw=true">FAQ</a> that
+you can use to help you use the program.
+</p>
+
+<p>
+<b><i>GoldenCheetah doesn't find my PowerTap on Ubuntu Linux.</i></b>
+<p>
+If you're using the USB cradle (as opposed to the older, serial one), 
+the FTDI driver sometimes conflicts with the braille terminal in the
+default Ubuntu installation.  Try unplugging the PT cradle from the
+computer and uninstalling <code>brltty</code>:
+<blockquote>
+<code>sudo apt-get remove brltty</code>
+</blockquote>
+Then plug the device back in and it should work.
+
+<p>
+<b><i>I downloaded a .dmg, opened it, dragged and dropped GoldenCheetah into
+Applications, double-clicked on it, and nothing happened.  What
+gives?</i></b>
+
+<p>
+Are you running OS X Tiger (10.4) or later?  You need to be.
+If you are, and you're still
+having this problem, open Terminal (in Applications -&gt; Utilities) and type
+this at the prompt:
+
+<blockquote><pre>
+/Applications/GoldenCheetah.app/Contents/MacOS/GoldenCheetah
+</pre></blockquote>
+
+then press &lt;return&gt; and send an email to the mailing list with
+whatever it prints out.  We'll help you debug it.
+

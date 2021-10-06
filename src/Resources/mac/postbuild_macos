@@ -1,0 +1,17 @@
+#!/bin/zsh
+
+# Extract Notio version from GcUpgrade.h file.
+version_nk=$(sed -n '/^\#define VERSION_NK / s/[^\"]*\"\([^\"]*\)\"/\1/p' ./src/Core/GcUpgrade.h)
+
+# Extract Golden Cheetah version from GcUpgrade.h file.
+version_string=$(sed -n '/^\#define VERSION_STRING / s/[^\"]*\"\([^\"]*\)\"/\1/p' ./src/Core/GcUpgrade.h)
+
+# Escape some characters.
+short_version=$(echo "${version_nk}" | sed -e 's/[]$.*[\^]/\\&/g')
+info_string=$(echo "${version_string}" | sed -e 's/[]$.*[\^]/\\&/g')
+
+# Replace CFBundleGetInfoString key value with a string used as regex for next release build.
+sed -i '' "s/$info_string/GCVersion/g" ./src/Resources/mac/Info.plist.app
+
+# Replace CFBundleShortVersionString key value with a string used as regex for next release build.
+sed -i '' "s/$short_version/x\.y\.z/g" ./src/Resources/mac/Info.plist.app
