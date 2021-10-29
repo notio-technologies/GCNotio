@@ -124,7 +124,7 @@ Sie müssen diesen möglicherweise manuell de-aktivieren.</translation>
     </message>
     <message>
         <location filename="../../Gui/AboutDialog.cpp" line="56"/>
-        <source>&lt;center&gt;&lt;img src=&quot;:images/gc.png&quot; height=80&gt;&lt;h2&gt;GoldenCheetah&lt;/h2&gt;Cycling Power Analysis Software&lt;br&gt;for Linux, Mac, and Windows&lt;p&gt;GoldenCheetah is licensed under the&lt;br&gt;&lt;a href=&quot;http://www.gnu.org/copyleft/gpl.html&quot;&gt;GNU General Public License&lt;/a&gt;.&lt;p&gt;Source code can be obtained from&lt;br&gt;&lt;a href=&quot;http://goldencheetah.org/&quot;&gt;http://goldencheetah.org/&lt;/a&gt;.&lt;br&gt;&lt;p&gt;Activity files and other data are stored in&lt;br&gt;&lt;a href=&quot;%1&quot;&gt;%2&lt;/a&gt;&lt;p&gt;Athlete ID %3&lt;br&gt;&lt;p&gt;Trademarks used with permission&lt;br&gt;BikeScore, xPower, SwimScore courtesy of &lt;a href=&quot;http://www.physfarm.com&quot;&gt;Physfarm Training Systems&lt;/a&gt;.&lt;br&gt;Virtual Speed courtesy of Tom Compton &lt;a href=&quot;http://www.analyticcycling.com&quot;&gt;AnalyticCycling&lt;/a&gt;.&lt;br&gt;&lt;br&gt;The core body temperature module was developed by the &lt;br&gt;&lt;a href=&quot;http://www.usariem.army.mil/&quot;&gt;U.S. Army Research Institute of Environmental Medicine&lt;/a&gt;&lt;br&gt; and is patent pending&lt;br&gt;&lt;br&gt;&lt;img src=&quot;:images/services/strava_compatible.png&quot;/&gt;&lt;br&gt;&lt;/center&gt;</source>
+        <source>&lt;center&gt;&lt;img src=&quot;:images/gc.png&quot; height=80&gt;&lt;h2&gt;GoldenCheetah&lt;/h2&gt;Cycling Power Analysis Software&lt;br&gt;for Linux, Mac, and Windows&lt;p&gt;GoldenCheetah is licensed under the&lt;br&gt;&lt;a href=&quot;https://opensource.org/licenses/GPL-2.0&quot;&gt;GNU General Public License 2.0&lt;/a&gt;.&lt;p&gt;Source code can be obtained from&lt;br&gt;&lt;a href=&quot;https://www.goldencheetah.org/&quot;&gt;https://www.goldencheetah.org/&lt;/a&gt;.&lt;p&gt;For GC Notio fork, it can be obtained from&lt;br&gt;&lt;a href=&quot;https://github.com/notio-technologies/GCNotio&quot;&gt;GC Notio GitHub repository&lt;/a&gt;.&lt;br&gt;&lt;p&gt;Activity files and other data are stored in&lt;br&gt;&lt;a href=&quot;%1&quot;&gt;%2&lt;/a&gt;&lt;p&gt;Athlete ID %3&lt;br&gt;&lt;p&gt;Trademarks used with permission&lt;br&gt;BikeScore, xPower, SwimScore courtesy of &lt;a href=&quot;http://www.physfarm.com&quot;&gt;Physfarm Training Systems&lt;/a&gt;.&lt;br&gt;Virtual Speed courtesy of Tom Compton &lt;a href=&quot;https://analyticcycling.blogspot.com/&quot;&gt;AnalyticCycling&lt;/a&gt;.&lt;br&gt;&lt;br&gt;The core body temperature module was developed by the &lt;br&gt;&lt;a href=&quot;https://www.usariem.army.mil/&quot;&gt;U.S. Army Research Institute of Environmental Medicine&lt;/a&gt;&lt;br&gt; and is patent pending&lt;br&gt;&lt;br&gt;&lt;img src=&quot;:images/services/strava_compatible.png&quot;/&gt;&lt;br&gt;&lt;/center&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4915,34 +4915,34 @@ Starte mit dem Laden einiger Aktivitäten.</translation>
 <context>
     <name>BlankStateDiaryPage</name>
     <message>
-        <location filename="../../Charts/BlankState.cpp" line="466"/>
+        <location filename="../../Charts/BlankState.cpp" line="461"/>
         <source>Diary</source>
         <translation>Tagebuch</translation>
     </message>
     <message>
-        <location filename="../../Charts/BlankState.cpp" line="467"/>
+        <location filename="../../Charts/BlankState.cpp" line="462"/>
         <source>No ride ?
 Let&apos;s start with some data.</source>
         <translation>Keine Aktivitäten?
 Starte mit dem Laden einiger Aktivitäten.</translation>
     </message>
     <message>
-        <location filename="../../Charts/BlankState.cpp" line="473"/>
+        <location filename="../../Charts/BlankState.cpp" line="468"/>
         <source>Import files from your disk or usb device</source>
         <translation>Dateien von Festplatte oder USB-Gerät importieren</translation>
     </message>
     <message>
-        <location filename="../../Charts/BlankState.cpp" line="474"/>
+        <location filename="../../Charts/BlankState.cpp" line="469"/>
         <source>Import data</source>
         <translation>Importieren</translation>
     </message>
     <message>
-        <location filename="../../Charts/BlankState.cpp" line="480"/>
+        <location filename="../../Charts/BlankState.cpp" line="475"/>
         <source>Download from serial device.</source>
         <translation>Download von Gerät an serieller Schnittstelle.</translation>
     </message>
     <message>
-        <location filename="../../Charts/BlankState.cpp" line="481"/>
+        <location filename="../../Charts/BlankState.cpp" line="476"/>
         <source>Download from device</source>
         <translation>Download</translation>
     </message>
@@ -4950,34 +4950,34 @@ Starte mit dem Laden einiger Aktivitäten.</translation>
 <context>
     <name>BlankStateHomePage</name>
     <message>
-        <location filename="../../Charts/BlankState.cpp" line="437"/>
+        <location filename="../../Charts/BlankState.cpp" line="432"/>
         <source>Trends</source>
         <translation>Trends</translation>
     </message>
     <message>
-        <location filename="../../Charts/BlankState.cpp" line="438"/>
+        <location filename="../../Charts/BlankState.cpp" line="433"/>
         <source>No ride ?
 Let&apos;s start with some data.</source>
         <translation>Keine Aktivitäten?
 Starte mit dem Laden einiger Aktivitäten.</translation>
     </message>
     <message>
-        <location filename="../../Charts/BlankState.cpp" line="444"/>
+        <location filename="../../Charts/BlankState.cpp" line="439"/>
         <source>Import files from your disk or usb device</source>
         <translation>Dateien von Festplatte oder USB-Gerät importieren</translation>
     </message>
     <message>
-        <location filename="../../Charts/BlankState.cpp" line="445"/>
+        <location filename="../../Charts/BlankState.cpp" line="440"/>
         <source>Import data</source>
         <translation>Importieren</translation>
     </message>
     <message>
-        <location filename="../../Charts/BlankState.cpp" line="451"/>
+        <location filename="../../Charts/BlankState.cpp" line="446"/>
         <source>Download from serial device.</source>
         <translation>Download von Gerät an serieller Schnittstelle.</translation>
     </message>
     <message>
-        <location filename="../../Charts/BlankState.cpp" line="452"/>
+        <location filename="../../Charts/BlankState.cpp" line="447"/>
         <source>Download from device</source>
         <translation>Download</translation>
     </message>
@@ -5055,12 +5055,12 @@ Starte mit dem Laden einiger Aktivitäten.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Charts/BlankState.cpp" line="376"/>
+        <location filename="../../Charts/BlankState.cpp" line="371"/>
         <source>Notio Synchronization</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Charts/BlankState.cpp" line="382"/>
+        <location filename="../../Charts/BlankState.cpp" line="377"/>
         <source>You need to connect to your Notio cloud account first.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5081,44 +5081,44 @@ Starte mit dem Laden einiger Aktivitäten.</translation>
 <context>
     <name>BlankStateTrainPage</name>
     <message>
-        <location filename="../../Charts/BlankState.cpp" line="495"/>
+        <location filename="../../Charts/BlankState.cpp" line="490"/>
         <source>Train</source>
         <translation>Trainieren</translation>
     </message>
     <message>
-        <location filename="../../Charts/BlankState.cpp" line="496"/>
+        <location filename="../../Charts/BlankState.cpp" line="491"/>
         <source>No devices or workouts ?
 Let&apos;s get you setup.</source>
         <translation>Keine Geräte oder Workouts?
 Setup durchführen.</translation>
     </message>
     <message>
-        <location filename="../../Charts/BlankState.cpp" line="504"/>
+        <location filename="../../Charts/BlankState.cpp" line="499"/>
         <source>Find and add training devices.</source>
         <translation>Trainingsgeräte finden und hinzufügen.</translation>
     </message>
     <message>
-        <location filename="../../Charts/BlankState.cpp" line="505"/>
+        <location filename="../../Charts/BlankState.cpp" line="500"/>
         <source>Add device</source>
         <translation>Gerät hinzufügen</translation>
     </message>
     <message>
-        <location filename="../../Charts/BlankState.cpp" line="512"/>
+        <location filename="../../Charts/BlankState.cpp" line="507"/>
         <source>Find and Import your videos and workouts.</source>
         <translation>Videos und Workouts finden und importieren.</translation>
     </message>
     <message>
-        <location filename="../../Charts/BlankState.cpp" line="513"/>
+        <location filename="../../Charts/BlankState.cpp" line="508"/>
         <source>Scan hard drives</source>
         <translation>Festplatten durchsuchen</translation>
     </message>
     <message>
-        <location filename="../../Charts/BlankState.cpp" line="519"/>
+        <location filename="../../Charts/BlankState.cpp" line="514"/>
         <source>Download workout files from the Erg DB.</source>
         <translation>Workout-Dateien aus der ErgDB herunterladen.</translation>
     </message>
     <message>
-        <location filename="../../Charts/BlankState.cpp" line="520"/>
+        <location filename="../../Charts/BlankState.cpp" line="515"/>
         <source>Download workouts</source>
         <translation>Workouts herunterladen</translation>
     </message>
