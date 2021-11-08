@@ -5,8 +5,8 @@
 
                                   Michael Beaulieu
 
-                                      Aug 2021
-                                     Version 1.8
+                                      Nov 2021
+                                     Version 1.9
 
 Instructions to build the Notio version of Golden Cheetah on Windows. It was
 done on Windows 10 but it could be done on other version of Windows.
@@ -87,6 +87,8 @@ https://git-scm.com/download/win
 ----------------------
 Get the package file NotioAlgo-x.x.x-win64.zip from our repository and extract the content
 in the folder "C:\Dependencies\".
+
+https://github.com/notio-technologies/NotioAlgo
 
 Note: If you put your files else where, you'll need to modify the path in the
       file gcconfig.pri

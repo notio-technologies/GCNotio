@@ -5,8 +5,8 @@
 
                                   Michael Beaulieu
 
-                                      Aug 2021
-                                     Version 1.6
+                                      Nov 2021
+                                     Version 1.7
 
 Instructions to build the Notio version of Golden Cheetah.
 
@@ -51,6 +51,8 @@ Developer and Designer Tools
 ----------------------
 Get the package file NotioAlgo-x.x.x-macos.zip from our repository and extract the content
 in the folder "/usr/local/lib".
+
+https://github.com/notio-technologies/NotioAlgo
 
 Update the gcconfig.pri, in the NotioAlgo section, by setting the path of NOTIOALGO_INSTALL.
 
